@@ -22,6 +22,8 @@ function sum(mat1,mat2,mat3){
     return mat3;
 }
 
+
+
 function sumOfEachRow(mat){
     let array = [];
     for(let i=0; i < mat.length; i++){
@@ -34,9 +36,33 @@ function sumOfEachRow(mat){
         return array;
 }
 
+
  function countWords(string) {
     const arr = string.split(' ');
     return arr.filter(word => word !== '').length;
  }
 
- 
+
+
+ function trim(string) {
+    let done = false;
+    let result = "";
+     
+     for (let i = 0; i < string.length; i++) {
+      if (string[i] !== " ") {
+        done = true;
+       }
+       if (done) result += string[i];
+     }
+     
+     return result;
+   }
+
+
+   module.exports = {
+    addition :addition,
+    sum :sum,
+    sumOfEachRow :sumOfEachRow,
+    countWords :countWords,
+    trim :trim
+};
