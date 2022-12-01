@@ -35,3 +35,17 @@ let mat = [
     [7,8,9]
 ];
 
+const readlineSync = require('readline-sync');
+let string = readlineSync.prompt();
+
+const addition = require("./main").addition
+const sum = require("./main").sum
+const sumOfEachRow = require("./main").sumOfEachRow
+const wordCount = require("./main").countWords
+const trim = require("./main").trim
+
+console.log(addition(matrix, matrix1, matrix2));
+console.log(sum(mat1,mat2,mat3));
+console.log(sumOfEachRow(mat));
+console.log(wordCount(` Hello World. It's time to Sleep.`));
+console.log(trim(string));
