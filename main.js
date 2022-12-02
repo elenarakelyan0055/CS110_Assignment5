@@ -1,68 +1,49 @@
-function addition(matrix, matrix1, matrix2) {
+let matrix = [
+    [2,3],
+    [5,8]
+];
 
-    for(let i = 0; i < matrix.length; i++){
-        for(let j = 0; j < matrix.length;j++){
-            matrix2[i][j] = 0;
-            for(z = 0; z <matrix.length;z++){
-                matrix2[i][j] += matrix[i][z]*matrix1[z][j]; 
-            }
-        }
-    }
-    return matrix2;
-}
+let matrix1 = [
+    [8,9,],
+    [1,9,]
+];
 
+let matrix2 = [
+    [],
+    [],
+    
+];
 
+let mat1 = [
+    [6, 9], 
+    [24, 4]
+];
+let mat2 = [
+    [87, 3], 
+    [4, 55]
+];
+let mat3 = [
+    [],
+    []
+];
 
-function sum(mat1,mat2,mat3){
-    for (let i = 0; i < mat1.length; i++) {
-        for (let j = 0; j < mat1[i].length; j++) {
-        mat3[i][j] = mat1[i][j] + mat2[i][j];
-         }
-    }
-    return mat3;
-}
+let mat = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
 
+const readlineSync = require('readline-sync');
+let string = readlineSync.prompt();
 
+const addition = require("./utils").addition
+const sum = require("./utils").sum
+const sumOfEachRow = require("./utils").sumOfEachRow
+const wordCount = require("./utils").countWords
+const trim = require("./utils").trim
 
-function sumOfEachRow(mat){
-    let array = [];
-    for(let i=0; i < mat.length; i++){
-        let sum =0;
-        for (let j = 0; j < mat[i].length; j++) {
-            sum += mat[i][j];
-            }
-        array.push(sum);
-    }
-        return array;
-}
-
-
- function countWords(string) {
-    const arr = string.split(' ');
-    return arr.filter(word => word !== '').length;
- }
-
-
-
- function trim(string) {
-    let done = false;
-    let result = "";
-     
-     for (let i = 0; i < string.length; i++) {
-      if (string[i] !== " ") {
-        done = true;
-       }
-       if (done) result += string[i];
-     }
-     
-     return result;
-   }
-
-
-   module.exports = {
-    addition :addition,
-    sum :sum,
-    sumOfEachRow :sumOfEachRow,
-    countWords :countWords,
-    trim :trim
-};
+console.log(addition(matrix, matrix1, matrix2));
+console.log(sum(mat1,mat2,mat3));
+console.log(sumOfEachRow(mat));
+console.log(wordCount(` Hello World. We Love Programming and Computer Science`));
+console.log(trim(string));

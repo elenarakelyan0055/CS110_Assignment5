@@ -1,51 +1,68 @@
-let matrix = [
-    [2,3,5],
-    [5,8,1],
-    [3,9,7]
-];
+function addition(matrix, matrix1, matrix2) {
 
-let matrix1 = [
-    [8,9,8],
-    [1,9,5],
-    [8,9,3]
-];
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix.length;j++){
+            matrix2[i][j] = 0;
+            for(z = 0; z <matrix.length;z++){
+                matrix2[i][j] += matrix[i][z]*matrix1[z][j]; 
+            }
+        }
+    }
+    return matrix2;
+}
 
-let matrix2 = [
-    [],
-    [],
-    []
-];
 
-let mat1 = [
-    [6, 9], 
-    [24, 4]
-];
-let mat2 = [
-    [87, 3], 
-    [4, 55]
-];
-let mat3 = [
-    [],
-    []
-];
 
-let mat = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-];
+function sum(mat1,mat2,mat3){
+    for (let i = 0; i < mat1.length; i++) {
+        for (let j = 0; j < mat1[i].length; j++) {
+        mat3[i][j] = mat1[i][j] + mat2[i][j];
+         }
+    }
+    return mat3;
+}
 
-const readlineSync = require('readline-sync');
-let string = readlineSync.prompt();
 
-const addition = require("./main").addition
-const sum = require("./main").sum
-const sumOfEachRow = require("./main").sumOfEachRow
-const wordCount = require("./main").countWords
-const trim = require("./main").trim
 
-console.log(addition(matrix, matrix1, matrix2));
-console.log(sum(mat1,mat2,mat3));
-console.log(sumOfEachRow(mat));
-console.log(wordCount(` Hello World. It's time to Sleep.`));
-console.log(trim(string));
+function sumOfEachRow(mat){
+    let array = [];
+    for(let i=0; i < mat.length; i++){
+        let sum =0;
+        for (let j = 0; j < mat[i].length; j++) {
+            sum += mat[i][j];
+            }
+        array.push(sum);
+    }
+        return array;
+}
+
+
+ function countWords(string) {
+    const arr = string.split(' ');
+    return arr.filter(word => word !== '').length;
+ }
+
+
+
+ function trim(string) {
+    let done = false;
+    let result = "";
+     
+     for (let index = 0; index < string.length; index++) {
+      if (string[index] !== " ") {
+        done = true;
+       }
+       if (done) result += string[index];
+     }
+     
+     return result;
+   }
+
+
+   module.exports = {
+    addition :addition,
+    sum :sum,
+    sumOfEachRow :sumOfEachRow,
+    countWords :countWords,
+    trim :trim
+};

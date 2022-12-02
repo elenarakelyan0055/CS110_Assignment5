@@ -1,8 +1,6 @@
 /node_modules
 matrixAddition.js
 matrixSum.js
-package-lock.json
-package.json
 sumOfEachRow.js
 trim.js
 wordCount.js
